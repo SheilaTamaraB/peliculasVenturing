@@ -7,10 +7,6 @@ import axios from 'axios'
 export const PeliculasContext = React.createContext();
 
 const PeliculasContextProvider = props => {
-    /*const [peliculaAAgregar, setPeliculaAAgregar] = React.useState()
-    const [peliculaAModificar, setPeliculaAModificar] = React.useState()
-    const [peliculas, setPeliculas] = React.useState([])
-    const [volverACargar, setVolverACargar] = React.useState(true)*/
     const [estadoContexto, setEstadoContexto] = React.useState({
         peliculaAAgregar: { titulo: '', descripcion: '', ano: '' },
         peliculaAModificar: { titulo: '', descripcion: '', ano: '' },
@@ -19,19 +15,13 @@ const PeliculasContextProvider = props => {
         peliculas: [],
     })
     const [volverACargar, setVolverACargar] = React.useState(true)
-
-    React.useEffect(() => {
-        //console.log(estadoContexto)
-    })
+    
     React.useEffect(() => {
         if (volverACargar === true) {
             axios.get(`http://localhost:7000/api/peliculas`)
                 .then(res => {
-                    /*setPeliculas(res.data)
-                    setVolverACargar(false)*/
                     setEstadoContexto({ ...estadoContexto, peliculas: res.data })
                     setVolverACargar(false)
-                    //setEstadoContexto({ ...estadoContexto, volverACargar: false })
                 })
                 .catch(err =>
                     console.log('err'))
@@ -44,13 +34,9 @@ const PeliculasContextProvider = props => {
                 , null, {
                 params:
                     estadoContexto.peliculaAAgregar
-
             })
                 .then(res => {
-                    /*setPeliculaAAgregar(null)
-                    setVolverACargar(true)*/
                     setEstadoContexto({ ...estadoContexto, peliculaAAgregar: {} })
-                    //setEstadoContexto({ ...estadoContexto, volverACargar: true })
                     setVolverACargar(true)
                 })
                 .catch(err =>
@@ -98,12 +84,7 @@ const PeliculasContextProvider = props => {
     return (
         <PeliculasContext.Provider value={[
             estadoContexto,
-            setEstadoContexto
-            /*peliculas,
-            setPeliculaAModificar,
-            peliculaAModificar,
-            setPeliculaAAgregar,
-        peliculaAAgregar*/]}>
+            setEstadoContexto]}>
             {props.children}
         </PeliculasContext.Provider >
     )

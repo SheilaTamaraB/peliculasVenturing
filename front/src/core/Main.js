@@ -5,22 +5,21 @@ import Peliculas from '../componets/Peliculas';
 import Modificar from '../componets/modificar';
 import Agregar from '../componets/Agregar';
 import Archivo from '../componets/archivo';
+import { PeliculasContext } from '../context/peliculaContext'
 
 
 export default function Main() {
-    
-    return (<div>
-        <Navegacion />
+    const [estadoContexto, setEstadoContexto] = React.useContext(PeliculasContext);
 
-        <Routes>
-            <Route path='/' element={<Peliculas />} />
-            <Route path={'/modificar'} element={<Modificar  />} />
-            <Route path='/agregar' element={<Agregar />} />
-            <Route path='/subir-archivo' element={<Archivo />} />
-
-        </Routes>
-
-
-
-    </div>)
+    return (
+        <div>
+            <Navegacion />
+            <Routes>
+                <Route path='/' element={<Peliculas peliculas={estadoContexto.Peliculas} />} />
+                <Route path={'/modificar'} element={<Modificar />} />
+                <Route path='/agregar' element={<Agregar />} />
+                <Route path='/subir-archivo' element={<Archivo />} />
+            </Routes>
+        </div>
+    );
 }
