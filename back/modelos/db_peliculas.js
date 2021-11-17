@@ -18,7 +18,7 @@ const insertarPelicula = (titulo, descripcion, ano, callback) => {
     let sql = 'INSERT INTO pelicula SET ?'
     db.query(sql, post, (err, success) => {
         if (err) {
-            throw err + ' no se insertar registro el la tabla pelicula '
+            console.log( ' no se insertar registro el la tabla pelicula ')
         } else {
             return callback(success)
         }
@@ -29,7 +29,7 @@ const seleccionarPeliculas = (callback) => {
     let sql = 'SELECT * FROM pelicula'
     db.query(sql, (err, resultado) => {
         if (err) {
-            throw err + ' no se encontro registro el la tabla pelicula '
+            console.log(err + ' no se encontro registro el la tabla pelicula ')
         } else {
             return callback(resultado)
         }
@@ -39,7 +39,7 @@ const seleccionarPeliculas = (callback) => {
 const seleccionarPelicula = (t) => {
     let sql = `SELECT * FROM pelicula WHERE titulo = ?`
      db.query(sql,[t], (err, resultado) => {
-        if (err) { throw err + ' no se encontro ese registro el la tabla pelicula ' }
+        if (err) {console.log( + ' no se encontro ese registro el la tabla pelicula ') }
         return resultado
     })
 }
@@ -50,7 +50,7 @@ const actualizarPelicula = (t, d, a, callback) => {
     let sql = `UPDATE pelicula SET ? WHERE titulo = ?`
     db.query(sql,  [datosACambiar,t ], (err, resultado) => {
         if (err) {
-            throw err + ' no se actualizo registro el la tabla pelicula '
+            console.log(+ ' no se actualizo registro el la tabla pelicula ')
         } else {
             return callback(resultado)
         }
@@ -60,7 +60,7 @@ const actualizarPelicula = (t, d, a, callback) => {
 const eliminarPelicula = (t,callback) => {
     let sql = `DELETE FROM pelicula WHERE titulo = ?`
     db.query(sql,[t], (err, resultado) => {
-        if (err) { throw err + ' no se elimino registro el la tabla pelicula ' 
+        if (err) {console.log( err + ' no se elimino registro el la tabla pelicula ' )
     }else {
         return callback(resultado)
     }

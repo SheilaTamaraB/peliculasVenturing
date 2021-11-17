@@ -2,17 +2,17 @@ import './App.css';
 import UpBar from './core/UpBar';
 import Main from './core/Main';
 import { BrowserRouter as Router } from 'react-router-dom';
-import PeliculasContextProvder from './comtext/peliculaContext';
+import PeliculasContextProvider from './context/peliculaContext';
 
 function App() {
   return (
     <div >
-      <PeliculasContextProvder>
+      <PeliculasContextProvider>
         <Router>
           <UpBar />
           <Main />
         </Router>
-      </PeliculasContextProvder>
+      </PeliculasContextProvider>
     </div>
   );
 }
