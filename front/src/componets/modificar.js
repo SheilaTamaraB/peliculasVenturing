@@ -42,7 +42,7 @@ export default function Modificar() {
             {console.log(estado)}
             <Box sx={{ width: 'auto', alignItems: 'center', textAlign: 'center' }}>
                 <Box sx={{ margin: '5px auto', marginTop: '45px', width: '70%', display: 'flex', direction: 'row', alignItems: 'center', textAlign: 'center', justifyContent: 'space-between' }}>
-                    {peliculaModificable && <Typography variant='h5' style={{ marginTop: '4%' }}>{peliculaModificable.titulo}</Typography>}
+                    {peliculaModificable && <Typography >{peliculaModificable.titulo}</Typography>}
                     {peliculaModificable && <Box sx={{ textAlign: 'left', textJustify: 'inter-word' }}><p>{peliculaModificable.descripcion}</p></Box>}
                     {peliculaModificable && <Typography>{peliculaModificable.ano}</Typography>}
                 </Box>
