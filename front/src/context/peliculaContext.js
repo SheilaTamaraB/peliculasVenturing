@@ -15,11 +15,12 @@ const PeliculasContextProvider = props => {
         peliculaAAgregar: { titulo: '', descripcion: '', ano: '' },
         peliculaAModificar: { titulo: '', descripcion: '', ano: '' },
         peliculaYSusModificaciones: { titulo: '', descripcion: '', ano: '' },
+        borrar: '',
         peliculas: [],
     })
     const [volverACargar, setVolverACargar] = React.useState(true)
-    
-    React.useEffect(()=>{
+
+    React.useEffect(() => {
         //console.log(estadoContexto)
     })
     React.useEffect(() => {
@@ -35,15 +36,15 @@ const PeliculasContextProvider = props => {
                 .catch(err =>
                     console.log('err'))
         }
-    },[estadoContexto,volverACargar])
+    }, [estadoContexto, volverACargar])
 
     React.useEffect(() => {
         if (estadoContexto.peliculaAAgregar.titulo) {
             axios.post(`http://localhost:7000/api/subirPelicula`
                 , null, {
-                    params: 
-                        estadoContexto.peliculaAAgregar
-                    
+                params:
+                    estadoContexto.peliculaAAgregar
+
             })
                 .then(res => {
                     /*setPeliculaAAgregar(null)
@@ -62,9 +63,9 @@ const PeliculasContextProvider = props => {
         if (estadoContexto.peliculaYSusModificaciones.titulo) {
             axios.put(`http://localhost:7000/api/actualizar`
                 , null, {
-                    params: 
-                        estadoContexto.peliculaYSusModificaciones
-                    
+                params:
+                    estadoContexto.peliculaYSusModificaciones
+
             })
                 .then(res => {
                     setEstadoContexto({ ...estadoContexto, peliculaYSusModificaciones: {} })
@@ -75,6 +76,23 @@ const PeliculasContextProvider = props => {
         }
 
     }, [estadoContexto.peliculaYSusModificaciones.titulo]);
+
+    React.useEffect(() => {
+        if (estadoContexto.borrar) {
+            axios.delete(`http://localhost:7000/api/delete`
+                ,{params: {
+                    titulo: estadoContexto.borrar
+                }
+            })
+                .then(res => {
+                    setEstadoContexto({ ...estadoContexto, borrar: '' })
+                    setVolverACargar(true)
+                })
+                .catch(err =>
+                    console.log('err'))
+        }
+
+    }, [estadoContexto.borrar]);
 
 
     return (
