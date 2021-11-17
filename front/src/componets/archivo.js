@@ -1,12 +1,27 @@
 import * as React from 'react'
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
+import axios from 'axios'
 
-export default function Archivo (){
+export default function Archivo() {
 
-    return(
-        <Box sx={{ width: 'auto',  alignItems: 'center', textAlign: 'center' }}>
-            <Button variant="outlined">Subir Archivo</Button>
+    function handleFileUpload(e) {
+        const selectedFile = e.target.files[0];
+        const formData = new FormData();
+        formData.append('file', selectedFile)
+
+        axios.post(`http://localhost:7000/api/uploadPeliculasFile`, formData, {
+            headers: {
+                'Content-Type': 'multipart/form-data'
+            }
+        })
+
+    }
+
+    return (
+        <Box sx={{ width: 'auto', alignItems: 'center', textAlign: 'center' }}>
+            <input onChange={(e) => handleFileUpload(e)} id={'fileInputId'} type='file' hidden />
+            <Button variant="outlined" onClick={() => { document.getElementById('fileInputId').click() }}>Subir Archivo</Button>
         </Box>
     )
 }
