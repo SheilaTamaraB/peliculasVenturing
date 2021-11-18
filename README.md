@@ -5,13 +5,20 @@ lista de peliculas - back nodejs - front react
 Para correr la aplicacion levantar el apache y el MySQL del XAMPP
 
 y desde consola entrar a la ruta del repositorio clonado y luego
+
 LEVANTAR EL BACK
+
 cd back
+
 npm run dev
 
+
 LEVANTAR EL FRONT (en otra terminal)
+
 cd front
+
 npm start
+
 
 
 Se va a abrir la aplicación en el navegador
@@ -31,9 +38,13 @@ Se va a abrir la aplicación en el navegador
 
 
 EL BACK 
+
 es node express mysql
+
 se crea una conexion, crea una base, se conecta a la base, crea una tabla (pelicula)
+
 en el puerto 7000 hace las request
+
     GET api/peliculas
     PUT api/actualizar
     DELETE api/delete
