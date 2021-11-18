@@ -6,8 +6,8 @@ Para correr la aplicacion levantar el apache y el MySQL del XAMPP
 
 y desde consola entrar a la ruta del repositorio clonado y luego
 LEVANTAR EL BACK
-cd back
-npm run dev
+\n cd back
+\n npm run dev
 
 LEVANTAR EL FRONT (en otra terminal)
 cd front
