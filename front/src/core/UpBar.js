@@ -9,8 +9,6 @@ export default function UpBar() {
         <div>
             <AppBar position="static">
                 <Toolbar>
-
-                    <Button color="inherit">Login</Button>
                 </Toolbar>
             </AppBar>
 
