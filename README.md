@@ -52,9 +52,13 @@ en el puerto 7000 hace las request
 
 
 Problemas encontrados
+
 *En back
+
 npm mysql es syncronico y fue dificil manejar las llamadas (principalmente porque es mi primer encuentro con node y su event loop), le pedi ayuda a un amigo y me explico que hay una herramienta llamada callback, que hace que desde la llamada no se ejecute la respuesta si no se ejecuto la funcion.
+
 *En front
+
 estoy muy acostumbrada al jsTypiado y me llevo tiempo encontrarle la vuelta al js normal, pero sin mayor dificultad lo logre ;D . Tambien estuve un buen rato re-aprendiendo algunas de las base de las nuevas versiones de librerias claves de react (react-router-dom), que con las actualizaciones cambian ciertos nombres.
 
 
