@@ -5,13 +5,20 @@ lista de peliculas - back nodejs - front react
 Para correr la aplicacion levantar el apache y el MySQL del XAMPP
 
 y desde consola entrar a la ruta del repositorio clonado y luego
+
 LEVANTAR EL BACK
+
 cd back
+
 npm run dev
 
+
 LEVANTAR EL FRONT (en otra terminal)
+
 cd front
+
 npm start
+
 
 
 Se va a abrir la aplicación en el navegador
@@ -31,9 +38,13 @@ Se va a abrir la aplicación en el navegador
 
 
 EL BACK 
+
 es node express mysql
+
 se crea una conexion, crea una base, se conecta a la base, crea una tabla (pelicula)
+
 en el puerto 7000 hace las request
+
     GET api/peliculas
     PUT api/actualizar
     DELETE api/delete
@@ -41,9 +52,13 @@ en el puerto 7000 hace las request
 
 
 Problemas encontrados
+
 *En back
+
 npm mysql es syncronico y fue dificil manejar las llamadas (principalmente porque es mi primer encuentro con node y su event loop), le pedi ayuda a un amigo y me explico que hay una herramienta llamada callback, que hace que desde la llamada no se ejecute la respuesta si no se ejecuto la funcion.
+
 *En front
+
 estoy muy acostumbrada al jsTypiado y me llevo tiempo encontrarle la vuelta al js normal, pero sin mayor dificultad lo logre ;D . Tambien estuve un buen rato re-aprendiendo algunas de las base de las nuevas versiones de librerias claves de react (react-router-dom), que con las actualizaciones cambian ciertos nombres.
 
 
