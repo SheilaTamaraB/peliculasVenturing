@@ -35,6 +35,7 @@ export default function Peliculas() {
     }
 
     const handlerBuscadorChange = (e) =>{
+        setPage(0)
         const {target} = e
         clearTimeout(typingTimer)
         typingTimer = setTimeout (()=>{
