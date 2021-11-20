@@ -2,7 +2,7 @@
 lista de peliculas - back nodejs - front react
 
 
-Para correr la aplicacion levantar el apache y el MySQL del XAMPP
+Para correr la aplicacion levantar el apache y el MySQL del XAMPP y crear una base de datos con nombre: peliculas
 
 y desde consola entrar a la ruta del repositorio clonado y luego
 
@@ -34,31 +34,27 @@ Se va a abrir la aplicación en el navegador
 - Pagina de Modificacion
     - se puede modificar la descripcion y el año de la pelicula
 - En la pestaña de Subir archivo
-    - Hay un boton que permite levantar un archivo, no va a hacer nada porque no se como manejarlo desde el back
+    - Hay un boton que permite levantar un archivo.
 
 
 EL BACK 
 
 es node express mysql
 
-se crea una conexion, crea una base, se conecta a la base, crea una tabla (pelicula)
+se crea una conexion, se conecta a la base, crea una tabla (pelicula)
 
 en el puerto 7000 hace las request
 
-    GET api/peliculas
-    PUT api/actualizar
-    DELETE api/delete
-    POST api/subirPelicula
+    GET api/peliculas --> obtiene todas las peliculas de la db
+    PUT api/actualizar --> con key titulo modifica la descripcion o el año
+    DELETE api/delete --> con key titulo elimina el registro
+    POST api/subirPelicula --> agrega un nuevo registro
+    POST api/uploadPeliculasFile --> guarda el archivo en la carpeta temporal, lo formate, elimina los repetidos dentro del mismo archivo, inserta los registros en la base de datos y elimina el archivo temporal.
 
 
 Problemas encontrados
 
 *En back
 
-npm mysql es syncronico y fue dificil manejar las llamadas (principalmente porque es mi primer encuentro con node y su event loop), le pedi ayuda a un amigo y me explico que hay una herramienta llamada callback, que hace que desde la llamada no se ejecute la respuesta si no se ejecuto la funcion.
-
-*En front
-
-estoy muy acostumbrada al jsTypiado y me llevo tiempo encontrarle la vuelta al js normal, pero sin mayor dificultad lo logre ;D . Tambien estuve un buen rato re-aprendiendo algunas de las base de las nuevas versiones de librerias claves de react (react-router-dom), que con las actualizaciones cambian ciertos nombres.
-
+npm mysql me fue dificil manejar las llamadas (principalmente porque es mi primer encuentro con node y su event loop), le pedi ayuda a un amigo y me explico que hay una funcion callback, que hace que desde la llamada no se ejecute la respuesta si no se ejecuto la funcion.
 

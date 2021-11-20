@@ -75,7 +75,7 @@ export default function Peliculas() {
                                 )}
 
                             {emptyRows > 0 && (
-                                <TableRow style={{ height: 53 * emptyRows }} >
+                                <TableRow style={{ height: 70 * emptyRows }} >
                                     <TableCell colSpan={6} />
                                 </TableRow>
                             )}

@@ -1,5 +1,4 @@
 const { urlencoded, json } = require('express');
-const bodyParser = require('body-parser')
 const express = require('express')
 const app = express();
 const logs = require('./controllers/logs')
@@ -12,15 +11,11 @@ const fs = require('fs')
 const path = require('path')
 const readline = require('readline');
 
-
-
-
-
-
 app.use(urlencoded({ extended: true }))
 app.use(cors())
 app.use(json())
 app.use('/api', [logs, router])
+
 
 
 var storage = multer.diskStorage({
@@ -36,19 +31,17 @@ var upload = multer({
     storage: storage
 });
 
+app.post('/api/uploadPeliculasFile', upload.single("uploadFile"), (req, res) => {
+    UploadCsvDataToMySQL(__dirname + '/tmp/csv/' + req.file.filename);
+    res.status(201).send('levantado')
+});
+
 var db = mysql.createConnection({
     host: 'localhost',
     user: 'root',
     password: '',
     database: 'peliculas'
 });
-
-app.post('/api/uploadPeliculasFile', upload.single("uploadFile"), (req, res) => {
-    UploadCsvDataToMySQL(__dirname + '/tmp/csv/' + req.file.filename);
-    res.status(201).send('levantado')
-});
-
-
 function uniq(a) {
     var seen = {};
     return a.filter(function (item) {
@@ -66,10 +59,7 @@ async function UploadCsvDataToMySQL(filePath) {
     for await (const line of rl) {
         fileData.push(("('" + line.slice(0, line.length - 1) + "')").replaceAll(";", "','"))
     }
-
     fileData = uniq(fileData)
-    console.log(fileData)
-
     db.connect((error) => {
         if (error) {
             console.error(error);
@@ -85,8 +75,8 @@ async function UploadCsvDataToMySQL(filePath) {
     })
     // delete file after saving to MySQL database
     fs.unlinkSync(filePath)
-
 }
+
 
 app.all('*', (req, res) => {
     res.status(404).send('error en la API')

@@ -14,7 +14,9 @@ export default function Archivo() {
             headers: {
                 'Content-Type': 'multipart/form-data'
             }
-        })
+        }).then(() => {
+            window.location.reload()
+        }).catch(err=>console.log(err))
 
     }
 

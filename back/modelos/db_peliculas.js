@@ -36,13 +36,6 @@ const seleccionarPeliculas = (callback) => {
     })
 }
 
-const seleccionarPelicula = (t) => {
-    let sql = `SELECT * FROM pelicula WHERE titulo = ?`
-     db.query(sql,[t], (err, resultado) => {
-        if (err) {console.log( + ' no se encontro ese registro el la tabla pelicula ') }
-        return resultado
-    })
-}
 
 const actualizarPelicula = (t, d, a, callback) => {
     console.log(t + d + a)
@@ -70,7 +63,6 @@ const eliminarPelicula = (t,callback) => {
 module.exports = {
     insertarPelicula,
     seleccionarPeliculas,
-    seleccionarPelicula,
     actualizarPelicula,
     eliminarPelicula
 }

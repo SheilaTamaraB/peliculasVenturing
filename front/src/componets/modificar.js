@@ -39,7 +39,6 @@ export default function Modificar() {
 
     return (
         <div>
-            {console.log(estado)}
             <Box sx={{ width: 'auto', alignItems: 'center', textAlign: 'center' }}>
                 <Box sx={{ margin: '5px auto', marginTop: '45px', width: '70%', display: 'flex', direction: 'row', alignItems: 'center', textAlign: 'center', justifyContent: 'space-between' }}>
                     {peliculaModificable && <Typography >{peliculaModificable.titulo}</Typography>}
