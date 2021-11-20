@@ -40,8 +40,8 @@ export default function Modificar() {
     return (
         <div>
             <Box sx={{ width: 'auto', alignItems: 'center', textAlign: 'center' }}>
-                <Box sx={{ margin: '5px auto', marginTop: '45px', width: '70%', display: 'flex', direction: 'row', alignItems: 'center', textAlign: 'center', justifyContent: 'space-between' }}>
-                    {peliculaModificable && <Typography >{peliculaModificable.titulo}</Typography>}
+                <Box sx={{ margin: '5px auto', marginTop: '45px', width: '70%', display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center', justifyContent: 'space-between' }}>
+                    {peliculaModificable && <Typography variant='h4' >{peliculaModificable.titulo}</Typography>}
                     {peliculaModificable && <Box sx={{ textAlign: 'left', textJustify: 'inter-word' }}><p>{peliculaModificable.descripcion}</p></Box>}
                     {peliculaModificable && <Typography>{peliculaModificable.ano}</Typography>}
                 </Box>
