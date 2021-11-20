@@ -1,42 +1,42 @@
 const mysql = require('mysql')
 
-var con = mysql.createConnection({
+var db = mysql.createConnection({
     host: 'localhost',
     user: 'root',
     password: '',
 });
 
-con.connect(function (err) {
+db.connect(function (err) {
     if (err) throw err;
     console.log("Connected!");
 });
 
 //create db
 let sqlDB = 'CREATE DATABASE IF NOT EXISTS peliculas'
-con.query(sqlDB, err => {
+db.query(sqlDB, err => {
     if (err) { throw err +' no se pudo crear la base' }
 })
 
-con.end()
+db.end()
 
-con = mysql.createConnection({
+db = mysql.createConnection({
     host: 'localhost',
     user: 'root',
     password: '',
     database:'peliculas'
 });
 
-con.connect(function (err) {
+db.connect(function (err) {
     if (err) throw err;
     console.log("Connected!");
 });
 
 //tabla
-let sqlT = 'CREATE TABLE IF NOT EXISTS pelicula (titulo VARCHAR(30) NOT NULL UNIQUE, descripcion varchar(150), ano SMALLINT, PRIMARY KEY(titulo))'
+let sqlT = 'CREATE TABLE IF NOT EXISTS pelicula (titulo VARCHAR(100) NOT NULL UNIQUE, descripcion varchar(150), ano SMALLINT, PRIMARY KEY(titulo))'
 
-con.query(sqlT, err => {
+db.query(sqlT, err => {
     if (err) { throw err + ' no se pudo crear la tabla '}
 }) 
 
-con.end()
+db.end()
 

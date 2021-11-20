@@ -85,7 +85,7 @@ export default function Peliculas() {
                     <TablePagination
                         rowsPerPageOptions={[5, 10, 15]}
                         component='div'
-                        count={estadoContexto.peliculas.length + 1}
+                        count={estadoContexto.peliculas.length}
                         page={page}
                         onPageChange={handleChangePage}
                         rowsPerPage={rowsPerPage}

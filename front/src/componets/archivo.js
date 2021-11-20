@@ -8,7 +8,7 @@ export default function Archivo() {
     function handleFileUpload(e) {
         const selectedFile = e.target.files[0];
         const formData = new FormData();
-        formData.append('file', selectedFile)
+        formData.append('uploadFile', selectedFile)
 
         axios.post(`http://localhost:7000/api/uploadPeliculasFile`, formData, {
             headers: {
