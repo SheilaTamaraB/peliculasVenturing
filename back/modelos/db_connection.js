@@ -32,7 +32,7 @@ db.connect(function (err) {
 });
 
 //tabla
-let sqlT = 'CREATE TABLE IF NOT EXISTS pelicula (titulo VARCHAR(100) NOT NULL UNIQUE, descripcion varchar(400), ano SMALLINT, PRIMARY KEY(titulo))'
+let sqlT = 'CREATE TABLE IF NOT EXISTS pelicula (titulo VARCHAR(200) NOT NULL UNIQUE, descripcion varchar(400), ano SMALLINT, PRIMARY KEY(titulo))'
 
 db.query(sqlT, err => {
     if (err) { throw err + ' no se pudo crear la tabla '}
